@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Music.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Rinkle&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Model</a> &gt; <span class="el_source">Music.java</span></div><h1>Music.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Model;
+
+import java.time.LocalDate;
+
+/**
+ *
+ * @author Rinkle
+ */
+public class Music {
+
+    private String musicName,genre,album;
+    
+    private LocalDate ReleaseDate;
+
+<span class="fc" id="L20">    public Music(String musicName, String genre, String album, LocalDate ReleaseDate) {</span>
+<span class="fc" id="L21">        setMusicName(musicName);</span>
+<span class="fc" id="L22">        setGenre(genre);</span>
+<span class="fc" id="L23">        setAlbum(album);</span>
+<span class="fc" id="L24">        setReleaseDate(ReleaseDate);</span>
+<span class="fc" id="L25">    }</span>
+
+    public String getGenre() {
+<span class="fc" id="L28">        return genre;</span>
+    }
+
+    /**
+     *
+     * @param genre
+     */
+    public void setGenre(String genre) {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (genre.equalsIgnoreCase(&quot;Rock&quot;) | genre.equalsIgnoreCase(&quot;Pop&quot;) | genre.equalsIgnoreCase(&quot;Jazz&quot;) | genre.equalsIgnoreCase(&quot;Romantic&quot;) | genre.equalsIgnoreCase(&quot;Horror&quot;)) {</span>
+<span class="fc" id="L37">            this.genre = genre;</span>
+        } else {
+<span class="fc" id="L39">            throw new IllegalArgumentException(&quot;Genre must be valid&quot;);</span>
+        }
+
+<span class="fc" id="L42">    }</span>
+
+    public String getAlbum() {
+<span class="fc" id="L45">        return album;</span>
+    }
+
+    public void setAlbum(String album) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">       if (album.isEmpty()) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;album is required&quot;);</span>
+        } else {
+<span class="fc" id="L52">            this.album = album;</span>
+        }
+<span class="fc" id="L54">    }</span>
+
+    public LocalDate getReleaseDate() {
+<span class="fc" id="L57">        return ReleaseDate;</span>
+    }
+
+    public void setReleaseDate(LocalDate ReleaseDate) {
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (LocalDate.from(ReleaseDate).isAfter(LocalDate.now())) {</span>
+<span class="fc" id="L63">            throw new IllegalArgumentException(&quot;Release date is not correct&quot;);</span>
+        } else {
+<span class="fc" id="L65">            this.ReleaseDate = ReleaseDate;</span>
+        }
+
+<span class="fc" id="L68">    }</span>
+
+
+    
+
+    public String getMusicName() {
+<span class="fc" id="L74">        return musicName;</span>
+    }
+
+    public void setMusicName(String musicName) {
+<span class="fc bfc" id="L78" title="All 2 branches covered.">         if (musicName.isEmpty()) {</span>
+<span class="fc" id="L79">            throw new IllegalArgumentException(&quot;Music Name is required&quot;);</span>
+        } else {
+<span class="fc" id="L81">            this.musicName = musicName;</span>
+        }
+<span class="fc" id="L83">    }</span>
+
+   
+
+    @Override
+    public String toString() {
+<span class="fc" id="L89">        return  musicName;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
